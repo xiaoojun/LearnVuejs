@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    .active {
+      color: red;
+    }
+    .line {
+      color: black;
+    }
+  </style>
+</head>
+<body>
+
+<div id="app">
+  <ul>
+<!--    <li v-for="item in movies">{{item}}</li>-->
+    <li :class="{active: isActive, line: isLine}" v-for="(item, index) in movies" v-on:click="clickAction(item, index)">{{item}}</li>
+  </ul>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好啊",
+      movies: ['海王', '海贼王', '进击的巨人', '回家的诱惑'],
+      isActive: true,
+      isLine: false
+    },
+    methods: {
+      clickAction: function (item, index) {
+        //假如拿到了index，
+        console.log(item)
+        console.log(index)
+      }
+    }
+  })
+</script>
+</body>
+</html>

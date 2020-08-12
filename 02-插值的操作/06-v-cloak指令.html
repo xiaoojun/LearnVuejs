@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <style>
+    [v-cloak] {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<!--
+当js代码延迟执行时，界面会显示 {{message}}
+解决办法是 在 div 中添加 v-cloak,并设置对应的css 为none，
+-->
+
+<div id="app" v-cloak>
+  {{message}}
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+//  在vue解析前, div中有 v-cloak属性
+//  在vue解析后, div中没有 v-cloak属性
+setTimeout(function () {
+    const app = new Vue({
+      el: "#app",
+      data: {
+        message: "你好啊"
+      }
+    })
+  }, 1000)
+
+</script>
+
+</body>
+</html>

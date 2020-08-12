@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<!-- 事件传递问题 事件冒泡问题
+解决方案：@click.stop
+-->
+<div id="app" @click="divClick">
+   <button @click.stop="btnClick">按钮</button>
+
+<!--  prevent修饰符的作用-->
+  <form action="baidu">
+<!--    默认会自动提交-->
+<!--    <input type="submit" value="提交">-->
+
+<!--    通过@click.prevent 阻止默认提交事件-->
+    <input type="submit" value="提交" @click.prevent="submitClick">
+  </form>
+
+
+<!--  监听某个键盘的键的点击
+@keyup: 监听键盘点击
+@keyup.enter:监听enter键点击事件
+-->
+  <input type="text" @keyup.enter="keyUp">
+
+
+<!--  once 只触发一次
+@click.once:只监听一次
+-->
+  <button @click.once="btnClick2">按钮</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好啊"
+    },
+    methods: {
+      divClick(){
+        console.log("divClick")
+      },
+      btnClick(){
+        console.log("btnClick")
+      },
+      submitClick() {
+        console.log("submitClick")
+      },
+      keyUp(){
+        console.log("keyUp")
+      },
+      btnClick2(){
+        console.log("btnClick2")
+      },
+    }
+  })
+
+</script>
+
+</body>
+</html>

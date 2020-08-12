@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  // const obj = new Object();
+  // const obj = {
+  //   name: "tom",
+  //   age: 18
+  // }
+
+  const name = "xiaojun"
+  const  age = 18
+
+  //ES5写法
+  // const obj = {
+  //   name: name,
+  //   age: age
+  // }
+
+  //ES6属性的字面量写法
+  const  obj2 = {
+    name,
+    age
+  }
+  console.log(obj2)
+
+  // 方法的增强写法
+  //ES5原始写法
+  const obj3 = {
+    run: function () { },
+    eat: function () { }
+  }
+
+  //ES6的增强写法
+  const  obj3 = {
+    run(){ },
+    eat(){ }
+  }
+
+</script>
+</body>
+</html>

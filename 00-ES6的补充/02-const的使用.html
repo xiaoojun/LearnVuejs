@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<script>
+  const name = "tom"
+  // name = "dajun" 报错
+
+  //初始化时必须赋值
+  // const  age;
+  // age = 18;
+
+  //指向的对象不能修改，但对象的属性可以修改
+  const obj = {
+    name: "tom",
+    age: 18,
+    height: 1.88
+  }
+  console.log(obj)
+  obj.name = "科比"
+  console.log(obj)
+</script>
+</body>
+</html>

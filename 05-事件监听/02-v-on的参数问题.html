@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<div id="app">
+<!--  事件调用方法没有参数情况-->
+  <button @click="btnClick">按钮1</button>
+  <button @click="btnClick()">按钮2</button>
+
+<!--  在事件定义时，写函数时省略了小括号，但方法本身是需要一个参数的-->
+<!--  <button @click="btnClick2(12)">按钮3</button>-->
+
+<!--  如何函数需要参数，但是没有传入参数 默认是undefined-->
+<!--  <button @click="btnClick2()">按钮3</button>-->
+
+<!--
+//需要参数，但是没有传入，且也没有小括号，不会报错，会传入Event对象
+MouseEvent {isTrusted: true, screenX: 146,
+screenY: 233, clientX: 148, clientY: 26, …}
+-->
+  <button @click="btnClick2">按钮3</button>
+
+<!--  在方法定义时，除了event对象，同时又需要其他参数
+如何在有参数时，获取event对象 $event-->
+  <button @click="btnClick3(123, $event)">按钮4</button>
+</div>
+
+<script src="../js/vue.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: "你好啊"
+    },
+    methods: {
+      btnClick() {
+        console.log("btnClick")
+      },
+      btnClick2(event) {
+      console.log(event, "-----")
+      },
+      btnClick3(abc, event){
+        console.log(abc, event, '=======')
+      }
+    }
+  })
+</script>
+
+</body>
+</html>

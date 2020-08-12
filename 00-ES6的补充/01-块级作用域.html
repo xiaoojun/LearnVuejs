@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<button>按钮1</button>
+<button>按钮2</button>
+<button>按钮3</button>
+<button>按钮4</button>
+<button>按钮5</button>
+
+<script>
+
+  var btns = document.getElementsByTagName("button");
+
+  //ES5 错误写法
+  // for (var i = 0; i < btns.length; i++) {
+  //   btns[i].addEventListener('click', function () {
+  //       console.log("弟" + i + "个按钮被点击了")
+  //   })
+  // }
+
+//ES5必须借用闭包的功能
+//   for (var i = 0; i < btns.length; i++) {
+//     (function (index) {
+//       btns[i].addEventListener('click', function () {
+//         console.log("弟" + index + "个按钮被点击了")
+//       })
+//     })(i)
+//   }
+
+  //Es6的写法
+  for (let i = 0; i < btns.length; i++) {
+    btns[i].addEventListener('click', function () {
+      console.log("弟" + i + "个按钮被点击了")
+    })
+  }
+</script>
+</body>
+</html>
